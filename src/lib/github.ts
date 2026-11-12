@@ -1,4 +1,4 @@
-// FR-2, FR-7 · Owner: Most. Sumaiya Akter Shraboni (241-35-514) — GitHub API via Octokit + live-link check
+
 // FR-2, FR-7 · Owner: Most. Sumaiya Akter Shraboni (241-35-514) — GitHub API via Octokit + live-link check
 import { Octokit } from '@octokit/rest';
 import type { FileItem, Live } from '../types';

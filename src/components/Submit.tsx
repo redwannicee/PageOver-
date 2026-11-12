@@ -5,6 +5,7 @@ import { readZip } from '../lib/zip';
 import { fetchRepo } from '../lib/github';
 import { analyze } from '../lib/rules';
 import { save } from '../lib/store';
+import Loading from './Loading';
 import type { Analysis } from '../types';
 export default function Submit({ onDone }: { onDone: (a: Analysis) => void }) {
   const [tab, setTab] = useState<'zip' | 'gh'>('zip'), [url, setUrl] = useState(''), [drag, setDrag] = useState(false);
@@ -36,7 +37,7 @@ export default function Submit({ onDone }: { onDone: (a: Analysis) => void }) {
           <button className="btn w-full" disabled={m.isPending}>Analyze Repository →</button>
         </form>
       )}
-      {m.isPending && <p className="mt-3 animate-pulse text-center text-sm text-indigo-300">Analyzing… this runs entirely in your browser.</p>}
+      {m.isPending && <Loading />}
       {m.isError && <p className="mt-3 rounded-lg bg-red-500/10 p-3 text-sm text-red-300">⚠ {(m.error as Error).message}</p>}
     </div>
   );
